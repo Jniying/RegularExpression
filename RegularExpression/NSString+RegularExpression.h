@@ -20,6 +20,16 @@
  */
 - (BOOL)regexAtOneWithPattern:(NSString *)pattern success:(void(^)(NSString *Result, NSRange range))success  failure:(void(^)())failure;
 /**
+ *  正则表达式匹配每找到一个结果把字符串切分为每个字符串返回
+ *
+ *  @param pattern 匹配格式
+ *  @param success 成功回调，返回结果字符串，字符串的范围
+ *  @param failure 失败回调
+ *
+ *  @return 判断是否匹配成功
+ */
+- (BOOL)regexSubStringWithPattern:(NSString *)pattern success:(void(^)(NSString *Result, NSRange range))success  failure:(void(^)())failure;
+/**
  *  正则表达式匹配
  *
  *  @param pattern 匹配格式

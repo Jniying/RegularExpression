@@ -27,6 +27,52 @@
         return NO;
     }
 }
+- (BOOL)regexSubStringWithPattern:(NSString *)pattern success:(void (^)(NSString *, NSRange))success failure:(void (^)())failure {
+    if (self.length <= 0) {
+        return NO;
+    }
+    NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:pattern options:(NSRegularExpressionCaseInsensitive/*大小写敏感*/) error:nil];
+    //开始匹配
+    NSArray *matches = [regex matchesInString:self options:(NSMatchingReportCompletion/*完整匹配*/) range:NSMakeRange(0, self.length)];
+    if (matches.count) {
+        NSMutableArray *mArr = [NSMutableArray new];
+        for (NSTextCheckingResult *result in matches) {
+            NSString *str = [self substringWithRange:result.range];
+            [mArr addObject:str];
+        }
+        
+        NSArray *resultArr = nil;
+        for (NSInteger i = 0; i < mArr.count; ++i) {
+            
+            if (i == 0) {
+                resultArr = [self componentsSeparatedByString:mArr[i]];
+                NSRange range = [self rangeOfString:resultArr[0]];
+                if (range.location < self.length) {
+                   success(resultArr[0], range);
+                }
+                
+            }else if (i == mArr.count-1){
+                resultArr = [resultArr[1] componentsSeparatedByString:mArr[i]];
+                NSRange range = [self rangeOfString:resultArr[1]];
+                if (range.location > self.length) {
+                    success(resultArr[0],[self rangeOfString:resultArr[0]]);
+                }else {
+                    success(resultArr[0],[self rangeOfString:resultArr[0]]);
+                    success(resultArr[1], [self rangeOfString:resultArr[1]]);
+                }
+                
+            }else {
+                resultArr = [resultArr[1] componentsSeparatedByString:mArr[i]];
+                success(resultArr[0],[self rangeOfString:resultArr[0]]);
+            }
+            
+        }
+        return YES;
+    }else {
+        failure();
+        return NO;
+    }
+}
 - (BOOL)regexWithPattern:(NSString *)pattern success:(void (^)(NSDictionary *))success failure:(void (^)())failure {
     if (self.length <= 0) {
         return NO;

@@ -11,9 +11,9 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
       
-        NSString *str = @"4532.4_%2342@qq.cn";
-        [str regularExpressionWithMailSuccess:^(NSDictionary *successResult) {
-            NSLog(@"成功");
+        NSString *str = @"[dddd]453[fdfsd]2.4_%234[dfasfsa]2@qq.cn[fff]";
+        [str regexSubStringWithPattern:@"\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]" success:^(NSString *Result, NSRange range) {
+            NSLog(@"%@---%@", Result ,NSStringFromRange(range));
         } failure:^{
             NSLog(@"失败");
         }];
