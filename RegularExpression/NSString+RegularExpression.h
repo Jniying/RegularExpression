@@ -10,6 +10,16 @@
 
 @interface NSString (RegularExpression)
 /**
+ *  正则表达式匹配每找到一个结果回调一次
+ *
+ *  @param pattern 匹配格式
+ *  @param success 成功回调，返回结果字符串，字符串的范围
+ *  @param failure 失败回调
+ *
+ *  @return 判断是否匹配成功
+ */
+- (BOOL)regexAtOneWithPattern:(NSString *)pattern success:(void(^)(NSString *Result, NSRange range))success  failure:(void(^)())failure;
+/**
  *  正则表达式匹配
  *
  *  @param pattern 匹配格式
@@ -18,7 +28,7 @@
  *
  *  @return 判断是否匹配成功
  */
-- (BOOL)regularExpressionWithPattern:(NSString *)pattern success:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
+- (BOOL)regexWithPattern:(NSString *)pattern success:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
 /**
  *  正则表达式匹配QQ
  *
@@ -27,7 +37,7 @@
  *
  *  @return 判断是否匹配成功
  */
-- (BOOL)regularExpressionWithQQSuccess:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
+- (BOOL)regexWithQQSuccess:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
 /**
  *  正则表达式匹配手机号码
  *
@@ -36,7 +46,7 @@
  *
  *  @return 判断是否匹配成功
  */
-- (BOOL)regularExpressionWithPhoneSuccess:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
+- (BOOL)regexWithPhoneSuccess:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
 /**
  *  正则表达式匹配邮箱
  *
@@ -45,7 +55,7 @@
  *
  *  @return 判断是否匹配成功
  */
-- (BOOL)regularExpressionWithMailSuccess:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
+- (BOOL)regexWithMailSuccess:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
 /**
  *  正则表达式匹配生分证号码
  *
@@ -54,7 +64,7 @@
  *
  *  @return 判断是否匹配成功
  */
-- (BOOL)regularExpressionWithCardIDSuccess:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
+- (BOOL)regexWithCardIDSuccess:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
 /**
  *  正则表达式匹配车牌号码
  *
@@ -64,4 +74,5 @@
  *  @return 判断是否匹配成功
  */
 //- (BOOL)regularExpressionWithCarNoSuccess:(void(^)(NSDictionary *successResult))success  failure:(void(^)())failure;
+
 @end

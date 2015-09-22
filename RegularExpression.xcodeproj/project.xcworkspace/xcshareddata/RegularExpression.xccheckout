@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2DD4D580-278B-4774-BB68-0A8E0D968629</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RegularExpression</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5C8870B9B3A4451C2651C6C4361762958A0FCCEB</key>
+		<string>https://github.com/Jniying/RegularExpression.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RegularExpression.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5C8870B9B3A4451C2651C6C4361762958A0FCCEB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Jniying/RegularExpression.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5C8870B9B3A4451C2651C6C4361762958A0FCCEB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5C8870B9B3A4451C2651C6C4361762958A0FCCEB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RegularExpression</string>
+		</dict>
+	</array>
+</dict>
+</plist>
