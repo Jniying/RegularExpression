@@ -53,10 +53,13 @@
                 
             }else if (i == mArr.count-1){
                 resultArr = [resultArr[1] componentsSeparatedByString:mArr[i]];
-                NSRange range = [self rangeOfString:resultArr[1]];
-                if (range.location > self.length) {
+                NSRange range1 = [self rangeOfString:resultArr[1]];
+                NSRange range = [self rangeOfString:resultArr[0]];
+                if (range1.location > self.length && range.location < self.length) {
                     success(resultArr[0],[self rangeOfString:resultArr[0]]);
-                }else {
+                }else if (range1.location < self.length && range.location > self.length){
+                     success(resultArr[1],[self rangeOfString:resultArr[1]]);
+                }else if (range1.location < self.length && range.location < self.length){
                     success(resultArr[0],[self rangeOfString:resultArr[0]]);
                     success(resultArr[1], [self rangeOfString:resultArr[1]]);
                 }
