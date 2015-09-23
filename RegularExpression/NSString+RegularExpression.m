@@ -10,6 +10,10 @@
 
 @implementation NSString (RegularExpression)
 
+
+- (BOOL)isRegexWithPattern:(NSString *)pattern {
+    return [self regexWithPattern:pattern success:nil failure:nil];
+}
 - (BOOL)regexAtOneWithPattern:(NSString *)pattern success:(void (^)(NSString *, NSRange))success failure:(void (^)())failure {
     if (self.length <= 0) {
         return NO;
@@ -35,40 +39,16 @@
     //开始匹配
     NSArray *matches = [regex matchesInString:self options:(NSMatchingReportCompletion/*完整匹配*/) range:NSMakeRange(0, self.length)];
     if (matches.count) {
-        NSMutableArray *mArr = [NSMutableArray new];
+        NSTextCheckingResult *result = matches.firstObject;
+        NSString *str = [self substringWithRange:result.range];
+        NSMutableString *resultString = [[NSMutableString alloc]initWithString:self];
         for (NSTextCheckingResult *result in matches) {
-            NSString *str = [self substringWithRange:result.range];
-            [mArr addObject:str];
+            [resultString replaceCharactersInRange:result.range withString:str];
         }
-        
-        NSArray *resultArr = nil;
-        for (NSInteger i = 0; i < mArr.count; ++i) {
-            
-            if (i == 0) {
-                resultArr = [self componentsSeparatedByString:mArr[i]];
-                NSRange range = [self rangeOfString:resultArr[0]];
-                if (range.location < self.length) {
-                   success(resultArr[0], range);
-                }
-                
-            }else if (i == mArr.count-1){
-                resultArr = [resultArr[1] componentsSeparatedByString:mArr[i]];
-                NSRange range1 = [self rangeOfString:resultArr[1]];
-                NSRange range = [self rangeOfString:resultArr[0]];
-                if (range1.location > self.length && range.location < self.length) {
-                    success(resultArr[0],[self rangeOfString:resultArr[0]]);
-                }else if (range1.location < self.length && range.location > self.length){
-                     success(resultArr[1],[self rangeOfString:resultArr[1]]);
-                }else if (range1.location < self.length && range.location < self.length){
-                    success(resultArr[0],[self rangeOfString:resultArr[0]]);
-                    success(resultArr[1], [self rangeOfString:resultArr[1]]);
-                }
-                
-            }else {
-                resultArr = [resultArr[1] componentsSeparatedByString:mArr[i]];
-                success(resultArr[0],[self rangeOfString:resultArr[0]]);
-            }
-            
+        NSArray *arr = [resultString componentsSeparatedByString:str];
+        for (NSString *str1 in arr) {
+            if ([str1 isEqualToString:@""]) continue;
+            success(str1, [self rangeOfString:str1]);
         }
         return YES;
     }else {
@@ -76,6 +56,7 @@
         return NO;
     }
 }
+
 - (BOOL)regexWithPattern:(NSString *)pattern success:(void (^)(NSDictionary *))success failure:(void (^)())failure {
     if (self.length <= 0) {
         return NO;

@@ -10,6 +10,12 @@
 
 @interface NSString (RegularExpression)
 /**
+ *  直接判断是否匹配
+ *
+ *  @param pattern 匹配格式
+ */
+- (BOOL)isRegexWithPattern:(NSString *)pattern;
+/**
  *  正则表达式匹配每找到一个结果回调一次
  *
  *  @param pattern 匹配格式
