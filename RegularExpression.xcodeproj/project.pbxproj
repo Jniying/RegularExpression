@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F35D4B61BB1282200E35759 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F35D4B51BB1282200E35759 /* main.m */; };
-		9F37821D2140C14000B4792B /* NSString+RegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F37821C2140C14000B4792B /* NSString+RegularExpression.m */; };
+		9F37821F2140D64A00B4792B /* NSString+RegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F37821E2140D64A00B4792B /* NSString+RegularExpression.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +24,8 @@
 
 /* Begin PBXFileReference section */
 		9F35D4B21BB1282100E35759 /* RegularExpression */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RegularExpression; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F35D4B51BB1282200E35759 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9F37821B2140C14000B4792B /* NSString+RegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularExpression.h"; sourceTree = "<group>"; };
-		9F37821C2140C14000B4792B /* NSString+RegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularExpression.m"; sourceTree = "<group>"; };
+		9F37821E2140D64A00B4792B /* NSString+RegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RegularExpression.m"; sourceTree = "<group>"; };
+		9F3782202140D66000B4792B /* NSString+RegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RegularExpression.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +58,8 @@
 		9F35D4B41BB1282100E35759 /* RegularExpression */ = {
 			isa = PBXGroup;
 			children = (
-				9F37821A2140C14000B4792B /* RegularExpression */,
-				9F35D4B51BB1282200E35759 /* main.m */,
-			);
-			path = RegularExpression;
-			sourceTree = "<group>";
-		};
-		9F37821A2140C14000B4792B /* RegularExpression */ = {
-			isa = PBXGroup;
-			children = (
-				9F37821B2140C14000B4792B /* NSString+RegularExpression.h */,
-				9F37821C2140C14000B4792B /* NSString+RegularExpression.m */,
+				9F3782202140D66000B4792B /* NSString+RegularExpression.h */,
+				9F37821E2140D64A00B4792B /* NSString+RegularExpression.m */,
 			);
 			path = RegularExpression;
 			sourceTree = "<group>";
@@ -131,8 +120,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F37821D2140C14000B4792B /* NSString+RegularExpression.m in Sources */,
-				9F35D4B61BB1282200E35759 /* main.m in Sources */,
+				9F37821F2140D64A00B4792B /* NSString+RegularExpression.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
